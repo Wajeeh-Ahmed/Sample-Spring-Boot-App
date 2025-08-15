@@ -45,5 +45,17 @@ jobs:
         with:
           name: test-reports
           path: target/surefire-reports/  
-  
+  deploy:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: spring-boot-app
+          path: .
+      - name: Deploy the application
+        run: |
+          echo "Downloaded artifact from the 'build' job..."
+          echo "Deploying the artifact: spring-boot-app"
         
