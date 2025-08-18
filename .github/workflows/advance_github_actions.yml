@@ -1,13 +1,12 @@
-name: Spring Boot CI/CD
+name: Spring Boot CI/CD Advance Lab
 on:
-  push:
-    branches: [ main ]
+  workflow_dispatch:
 jobs:
   build_and_test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        java-version: [ '17', '21' ]
+        java-version: [ '21', '23' ]
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
