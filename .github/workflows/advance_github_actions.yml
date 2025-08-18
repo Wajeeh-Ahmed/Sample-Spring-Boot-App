@@ -33,7 +33,7 @@ jobs:
       - name: Upload Test Reports
         uses: actions/upload-artifact@v4
         with:
-          name: test-reports
+          name: test-reports-JDK-${{ matrix.java-version }}
           path: target/surefire-reports/      
         
   deploy:
@@ -43,7 +43,7 @@ jobs:
       - name: Download artifact
         uses: actions/download-artifact@v4
         with:
-          name: spring-boot-app
+          name: spring-boot-app-JDK-${{ matrix.java-version }}
           path: .
       - name: Deploy the application
         run: |
